@@ -1,7 +1,7 @@
 # 🧩 Anima Herramientas de Combate
 
 **Anima Herramientas de Combate** es una aplicación creada para facilitar el manejo de combates en el sistema de rol *Anima: Beyond Fantasy*.  
-Permite gestionar personajes, habilidades, turnos y resultados de forma rápida y visual, tanto para jugadores como para directores de juego.
+Permite gestionar personajes, habilidades, turnos y resultados de forma rápida y visual.
 
 ---
 
@@ -30,11 +30,11 @@ Permite gestionar personajes, habilidades, turnos y resultados de forma rápida 
 ## 📦 Instalación
 
 ### 🔹 Versión PC
-1. Descarga el ejecutable desde la sección **Releases** del repositorio.  
+1. Descarga el ejecutable desde la sección **Releases** del repositorio.  **TBD:**
 2. Ejecuta el archivo `.exe` y sigue las instrucciones.
 
 ### 🔹 Versión Android
-1. Descarga la **APK** desde la [Play Store](https://play.google.com/store/apps/details?id=anima.herramientas.combate) *(enlace pendiente)*.  
+1. Descarga la **APK** desde la [Play Store](https://play.google.com/store/apps/details?id=anima.herramientas.combate). **TBD:**  
 2. Instálala en tu dispositivo.
 
 ---
@@ -45,15 +45,3 @@ Permite gestionar personajes, habilidades, turnos y resultados de forma rápida 
 2. Configura sus atributos y habilidades.  
 3. Inicia el combate y deja que la app gestione los turnos.  
 4. Observa los resultados y ajusta según el desarrollo de la partida.
-
----
-
-## 🛠️ Desarrollo
-
-Si quieres modificar o contribuir:
-
-```bash
-git clone https://github.com/Gonzalogarcialvarez/Anima-Beyond-Fantasy-Herramientas-de-Combate.git
-cd Anima-Beyond-Fantasy-Herramientas-de-Combate
-npm install
-npm run dev
