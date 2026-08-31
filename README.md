@@ -10,7 +10,6 @@ Permite gestionar personajes, habilidades, turnos y resultados de forma rápida 
 - 📋 Gestión de combatientes y sus atributos.
 - ⚔️ Cálculo automático de ataques, defensas y turnos.
 - 🧮 Registro de rondas y resultados.
-- 💾 Guardado local de datos (sin necesidad de servidor).
 - 🖥️ Disponible en versión **Android (APK)** y **PC (ejecutable)**.
 
 ---
@@ -23,18 +22,17 @@ Permite gestionar personajes, habilidades, turnos y resultados de forma rápida 
 | Backend | No requiere servidor |
 | Build | Vite |
 | Estilos | CSS modular |
-| Distribución | GitHub + Play Store |
 
 ---
 
 ## 📦 Instalación
 
 ### 🔹 Versión PC
-1. Descarga el ejecutable desde la sección **Releases** del repositorio.  **TBD:**
+1. Descarga el ejecutable desde la sección **Releases** del repositorio.  **Not yet**
 2. Ejecuta el archivo `.exe` y sigue las instrucciones.
 
 ### 🔹 Versión Android
-1. Descarga la **APK** desde la [Play Store](https://play.google.com/store/apps/details?id=anima.herramientas.combate). **TBD:**  
+1. Descarga la **APK** desde la [Play Store](https://play.google.com/store/apps/details?id=anima.herramientas.combate). **Not yet**  
 2. Instálala en tu dispositivo.
 
 ---
