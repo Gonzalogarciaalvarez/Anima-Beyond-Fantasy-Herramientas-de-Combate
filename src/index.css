@@ -31,8 +31,11 @@
   }
 }
 
+/* Tema oscuro: se aplica automaticamente si el sistema esta en
+   oscuro (mientras no se haya forzado modo claro a mano), y siempre
+   que el boton de tema haya puesto data-theme="dark" en <html>. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --text: #9ca3af;
     --text-h: #f3f4f6;
     --bg: #16171d;
@@ -46,10 +49,21 @@
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
       rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
+}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+:root[data-theme="dark"] {
+  --text: #9ca3af;
+  --text-h: #f3f4f6;
+  --bg: #16171d;
+  --border: #2e303a;
+  --code-bg: #1f2028;
+  --accent: #c084fc;
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --accent-border: rgba(192, 132, 252, 0.5);
+  --social-bg: rgba(47, 48, 58, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
 }
 
 #root {
@@ -119,11 +133,13 @@ input {
   background-color: var(--code-bg);
   color: var(--text-h);
   border: 1px solid var(--border);
-  padding: 4px;
+  padding: 8px;
   border-radius: 4px;
   font-family: var(--sans);
   font-size: 14px;
   text-align: center;
+  min-height: 40px;
+  box-sizing: border-box;
 }
 
 input::placeholder {
@@ -131,29 +147,18 @@ input::placeholder {
   opacity: 0.7;
 }
 
-@media (prefers-color-scheme: dark) {
-  input {
-    background-color: var(--code-bg);
-    color: var(--text-h);
-    border-color: var(--border);
-  }
-
-  input::placeholder {
-    color: var(--text);
-    opacity: 0.9;
-  }
-}
-
 button {
   background-color: var(--accent-bg);
   color: var(--text-h);
   border: 1px solid var(--accent-border);
   border-radius: 4px;
-  padding: 6px 12px;
+  padding: 8px 14px;
   font-family: var(--sans);
   font-size: 15px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
+  min-height: 44px;
+  box-sizing: border-box;
 }
 
 button:hover {
@@ -161,31 +166,9 @@ button:hover {
   transform: scale(1.02);
 }
 
-@media (prefers-color-scheme: dark) {
-  button {
-    background-color: var(--accent-bg);
-    color: var(--text-h);
-    border-color: var(--accent-border);
-  }
-}
-.attack-section {
-  margin-top: 2rem;
-  padding-top: 1rem;
-}
-
-.combatant-row {
-  margin-bottom: 0.75rem;
-}
-
-@media (max-width: 600px) {
-  .combatant-row {
-    margin-bottom: 0.5rem;
-  }
-}
-
 @media (max-width: 600px) {
   :root {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   #root {
@@ -193,27 +176,14 @@ button:hover {
     border-inline: none;
   }
 
-  .combatant-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.4rem;
-    flex-direction: row;
-  }
-
   input {
-    flex: 1 1 30%;
-    min-width: 80px;
-    padding: 4px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    min-height: 44px;
   }
 
   button {
-    flex: 1 1 30%;
-    min-width: 80px;
-    padding: 4px 6px;
-    font-size: 0.85rem;
-    margin-top: 2px;
+    font-size: 0.9rem;
+    min-height: 48px;
   }
 
   h1 {

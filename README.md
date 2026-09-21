@@ -28,7 +28,7 @@ Permite gestionar personajes, habilidades, turnos y resultados de forma rápida 
 ## 📦 Instalación
 
 ### 🔹 Versión PC
-1. Descarga el ejecutable desde la sección **Releases** del repositorio.  **Not yet**
+1. Descarga el ejecutable desde la sección **Releases** del repositorio.
 2. Ejecuta el archivo `.exe` y sigue las instrucciones.
 
 ### 🔹 Versión Android

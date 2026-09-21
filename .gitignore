@@ -7,16 +7,53 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencias e instalacion
 node_modules
+
+# Build web (Vite)
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Ejecutables/paquetes ya compilados sueltos en la raiz
+release/
+*.apk
+*.aab
+*.ipa
+*.exe
+*.dmg
+*.msi
+
+# Variables de entorno / secretos - nunca deben subirse
+.env
+.env.*
+!.env.example
+
+# Claves de firma (Android keystore, certificados) - nunca deben subirse
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+
+# Refuerzo por si acaso (Android y Tauri ya tienen su propio .gitignore,
+# esto es una segunda capa de seguridad)
+android/app/build/
+android/.gradle/
+android/local.properties
+android/capacitor-cordova-android-plugins/
+src-tauri/target/
+src-tauri/gen/schemas/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import "./App.css";
 import { CombatantList } from "./components/CombatantList";
 import type { Combatant } from "./components/CombatantList";
 
 
 function App() {//La tabla con los placeholder
-  const [combatants, setCombatants] = useState<Combatant[]>([ 
+  const [combatants, setCombatants] = useState<Combatant[]>([
     {id: 1,name: "PJ 1",hp: 0,initiative: 0,turn: 0,attack: 0,defense: 0,damage: 0,extra1: "",extra2: "",},
     {id: 2,name: "PJ 2",hp: 0,initiative: 0,turn: 0,attack: 0,defense: 0,damage: 0,extra1: "",extra2: "",},
   ]);
@@ -14,36 +15,23 @@ function App() {//La tabla con los placeholder
     const [ta, setTa] = useState(0);
     const [attackResult, setAttackResult] = useState<string>("");
 
+    // Tema claro/oscuro: arranca siguiendo la preferencia del sistema,
+    // pero el boton permite forzarlo manualmente.
+    const [theme, setTheme] = useState<"light" | "dark">(() =>
+      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
+    );
 
-  /*
-  // TIRADA CON PIFIA INCLUIDA
-  const rollOpenWithFumble = () => {
-  let total = 0;
-  let openRange = 90; // primera abierta en 90–100
+    useEffect(() => {
+      document.documentElement.setAttribute("data-theme", theme);
+    }, [theme]);
 
-  const roll = Math.floor(Math.random() * 100) + 1;
-
-  //  PIFIA DE ANIMA (1–3)
-  if (roll <= 3) {
-    const secondRoll = Math.floor(Math.random() * 100) + 1;
-    return roll - secondRoll; // solo se resta UNA tirada
-  }
-
-  //  TIRADA NORMAL O ABIERTA
-  total += roll;
-
-  // abiertas con rango que se reduce
-let currentRoll = roll;
-while (currentRoll >= openRange) {
-  openRange++;
-  currentRoll = Math.floor(Math.random() * 100) + 1;
-  total += currentRoll;
-}
+    const toggleTheme = () => {
+      setTheme(prev => (prev === "dark" ? "light" : "dark"));
+    };
 
 
-  return total;
-};
-  */
 const rollOpen = () => {
   let total = 0;
   let openRange = 90;
@@ -157,7 +145,17 @@ const resolveAttack = () => {
  return (
   <>
     <div style={{ padding: "1rem" }}>
-      <h2>Anima Herramientas de Combate</h2>
+      <div className="app-header">
+        <h2>Anima Herramientas de Combate</h2>
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label="Cambiar entre modo claro y oscuro"
+          title="Cambiar entre modo claro y oscuro"
+        >
+          {theme === "dark" ? "☀️" : "🌙"}
+        </button>
+      </div>
 
       <button onClick={addCombatant}>
         Añadir combatiente
@@ -173,45 +171,47 @@ const resolveAttack = () => {
     <div className="attack-section">
       <h2>Resolución de ataque</h2>
 
-      <div>
-        <label>Habilidad de ataque:</label>
-        <input
-          type="number"
-          value={attackSkill}
-          onChange={e => setAttackSkill(Number(e.target.value))}
-        />
+      <div className="attack-fields">
+        <div className="attack-field">
+          <label>Habilidad de ataque</label>
+          <input
+            type="number"
+            value={attackSkill}
+            onChange={e => setAttackSkill(Number(e.target.value))}
+          />
+        </div>
+
+        <div className="attack-field">
+          <label>Habilidad de defensa</label>
+          <input
+            type="number"
+            value={defenseSkill}
+            onChange={e => setDefenseSkill(Number(e.target.value))}
+          />
+        </div>
+
+        <div className="attack-field">
+          <label>Daño del golpe</label>
+          <input
+            type="number"
+            value={baseDamage}
+            onChange={e => setBaseDamage(Math.max(0, Number(e.target.value)))}
+          />
+        </div>
+
+        <div className="attack-field">
+          <label>TA del defensor</label>
+          <input
+            type="number"
+            value={ta}
+            onChange={e => setTa(Math.max(0, Number(e.target.value)))}
+          />
+        </div>
       </div>
 
-      <div>
-        <label>Habilidad de defensa:</label>
-        <input
-          type="number"
-          value={defenseSkill}
-          onChange={e => setDefenseSkill(Number(e.target.value))}
-        />
-      </div>
+      <button className="attack-calc-btn" onClick={resolveAttack}>Calcular daño</button>
 
-      <div>
-        <label>Daño del golpe:</label>
-        <input
-          type="number"
-          value={baseDamage}
-          onChange={e => setBaseDamage(Math.max(0, Number(e.target.value)))}
-        />
-      </div>
-
-      <div>
-        <label>TA del defensor:</label>
-        <input
-          type="number"
-          value={ta}
-          onChange={e => setTa(Math.max(0, Number(e.target.value)))}
-        />
-      </div>
-
-      <button onClick={resolveAttack}>Calcular daño</button>
-
-      <div style={{ marginTop: "1rem" }}>
+      <div className="attack-result">
         <strong>Resultado:</strong> {attackResult}
       </div>
     </div>
