@@ -1,16 +1,19 @@
 # 🧩 Anima Herramientas de Combate
 
-**Anima Herramientas de Combate** es una aplicación creada para facilitar el manejo de combates en el sistema de rol *Anima: Beyond Fantasy*.  
-Permite gestionar personajes, habilidades, turnos y resultados de forma rápida y visual.
+**Anima Herramientas de Combate** es una aplicación de escritorio y Android pensada para agilizar los combates en el sistema de rol *Anima: Beyond Fantasy*.
+Gestiona a tus combatientes, resuelve la iniciativa de cada asalto y calcula el resultado de un ataque, todo sin salir de una única pantalla.
+
+No requiere cuenta, servidor ni conexión a internet: todos los datos viven solo en tu partida, mientras tienes la app abierta.
 
 ---
 
 ## 🚀 Características principales
 
-- 📋 Gestión de combatientes y sus atributos.
-- ⚔️ Cálculo automático de ataques, defensas y turnos.
-- 🧮 Registro de rondas y resultados.
-- 🖥️ Disponible en versión **Android (APK)** y **PC (ejecutable)**.
+- 📋 **Ficha de combatientes**: añade tantos como necesites, con nombre, HP, iniciativa base, ataque, defensa, daño y dos campos libres para lo que quieras anotar (efectos, notas, etc.).
+- 🎲 **Nuevo asalto con un clic**: calcula automáticamente el turno de cada combatiente con una tirada abierta de iniciativa (incluye pifias) y los reordena de mayor a menor.
+- ⚔️ **Resolución de ataque**: introduce habilidad de ataque, habilidad de defensa, daño del golpe y TA (Total de Armadura) del defensor, y la app calcula si hay contraataque, si el ataque falla pero el defensor pierde su acción, o el daño final ya restada la armadura.
+- 🌗 **Modo claro / oscuro**, con detección automática de la preferencia del sistema y botón para forzarlo.
+- 🖥️📱 Disponible como **ejecutable portable para Windows** y **APK para Android**.
 
 ---
 
@@ -19,27 +22,27 @@ Permite gestionar personajes, habilidades, turnos y resultados de forma rápida 
 | Componente | Tecnología |
 |-------------|-------------|
 | Frontend | React + TypeScript |
-| Backend | No requiere servidor |
-| Build | Vite |
-| Estilos | CSS modular |
+| Build web | Vite |
+| Empaquetado PC | Tauri 2.x |
+| Empaquetado Android | Capacitor |
 
 ---
 
 ## 📦 Instalación
 
 ### 🔹 Versión PC
-1. Descarga el ejecutable desde la sección **Releases** del repositorio.
-2. Ejecuta el archivo `.exe` y sigue las instrucciones.
+1. Descarga el `.exe` desde la sección [**Releases**](https://github.com/Gonzalogarciaalvarez/Anima-Beyond-Fantasy-Herramientas-de-Combate/releases) del repositorio.
+2. Ejecútalo directamente: es portable, no hace falta instalar nada.
 
 ### 🔹 Versión Android
-1. Descarga la **APK** desde la [Play Store](https://play.google.com/store/apps/details?id=anima.herramientas.combate). **Not yet**  
-2. Instálala en tu dispositivo.
+1. Descarga el **APK** desde la misma sección de [**Releases**](https://github.com/Gonzalogarciaalvarez/Anima-Beyond-Fantasy-Herramientas-de-Combate/releases).
+2. Al no venir de Play Store, tu móvil puede pedirte permitir la instalación desde "orígenes desconocidos" la primera vez. Acéptalo e instala el APK con normalidad.
 
 ---
 
 ## 🧩 Uso básico
 
-1. Añade tus combatientes.  
-2. Configura sus atributos y habilidades.  
-3. Inicia el combate y deja que la app gestione los turnos.  
-4. Observa los resultados y ajusta según el desarrollo de la partida.
+1. Pulsa **"Añadir combatiente"** por cada personaje o criatura en la escena y rellena su ficha (HP, iniciativa, ataque, defensa...).
+2. Pulsa **"Nuevo asalto"**: la app tira la iniciativa abierta de todos y los ordena para que sepas quién actúa primero.
+3. Cuando alguien ataque, usa la sección **"Resolución de ataque"**: mete habilidad de ataque, de defensa, daño del golpe y la TA del objetivo, y pulsa **"Calcular daño"** para ver el resultado.
+4. Repite "Nuevo asalto" en cada ronda para recalcular el orden de turnos.
